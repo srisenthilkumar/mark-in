@@ -16,7 +16,6 @@ import java.util.List;
 public class ObjectLocation {
 
     private static final String TAG = "ObjectLocation";
-    private static final String PRODUCT_WEB_SERVICE_URL = "http://192.168.1.11:8080/JSON_RESTful_Service/rest/products";
 
     public DeviceLocation getLocationByDevice(){
         //setting header to request for a JSON response
@@ -27,17 +26,23 @@ public class ObjectLocation {
     }
 
     private DeviceLocation convertJson(String productJSONStr) {
-        DeviceLocation location = null;
+        List<DeviceLocation> location = new ArrayList<DeviceLocation>();
         if (productJSONStr != null && productJSONStr.length() > 0) {
             try {
                 Gson gson = new Gson();
                 location =
-                        gson.fromJson(productJSONStr, new TypeToken<DeviceLocation>() {
+                        gson.fromJson(productJSONStr, new TypeToken<List<DeviceLocation>>() {
                         }.getType());
             } catch (IllegalStateException e) {
                 e.printStackTrace();
             }
         }
-        return location;
+        if(location.size() > 0)
+        {
+            return location.get(0);
+        }
+        else {
+            return null;
+        }
     }
 }

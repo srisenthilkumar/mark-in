@@ -1,5 +1,7 @@
 package com.markin.app.monitor;
 
+import android.os.AsyncTask;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -41,19 +43,31 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             @Override
             public void onClick(View v)
             {
-                mMap.clear();
-                ObjectLocation oLocate = new ObjectLocation();
-                DeviceLocation location = oLocate.getLocationByDevice();
-                if (location !=null)
-                Log.i("Map info",location.getLatitude()+"");
-                // Add a marker in Sydney and move the camera
-                LatLng sydney = new LatLng(location.getLatitude(),location.getLongitude());
-                mMap.addMarker(new MarkerOptions().position(sydney).title("Device"));
-                mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-                mMap.animateCamera( CameraUpdateFactory.zoomTo(10.0f ) );
-                WebSocketClient wsclient = new WebSocketClient();
-                wsclient.listen();
-                // do something
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                        mMap.clear();
+                        ObjectLocation oLocate = new ObjectLocation();
+                        DeviceLocation location = oLocate.getLocationByDevice();
+                        if (location == null) {
+                            Toast.makeText(MapsActivity.this, "no location updates found", Toast.LENGTH_SHORT).show();
+
+                        }else {
+                            Log.i("Map info", location.getLatitude() + "");
+                            // Add a marker in Sydney and move the camera
+                            LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
+                            mMap.addMarker(new MarkerOptions().position(sydney).title("Device"));
+                            mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+                            mMap.animateCamera(CameraUpdateFactory.zoomTo(14.0f));
+                        }   //Do something after 20 seconds
+                        handler.postDelayed(this, 12000);
+                    }
+                }, 3000);  //the time is in miliseconds
+
+
             }
         });
     }

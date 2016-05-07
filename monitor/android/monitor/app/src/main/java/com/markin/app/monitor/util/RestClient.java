@@ -3,6 +3,7 @@ package com.markin.app.monitor.util;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.os.AsyncTask;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -38,11 +39,12 @@ public class RestClient {
 
         try {
 
-            URL  url = new URL("http://192.168.1.3:8080/locations/device");
+            URL  url = new URL("http://appdatahandler.azurewebsites.net/Api/location?username=Mylapore%20vehicle");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setAllowUserInteraction(false);
             connection.setInstanceFollowRedirects(true);
             connection.setRequestMethod("GET");
+            connection.setRequestProperty("Content-Type", "application/json");
             connection.connect();
 
             int resCode = connection.getResponseCode();
@@ -73,4 +75,5 @@ public class RestClient {
 
         return sb.toString();
     }
+
 }

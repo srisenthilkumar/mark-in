@@ -5,32 +5,31 @@ package com.markin.app.monitor.model;
  */
 public class DeviceLocation {
 
-    private String device;
-    private double latitude;
-    private double longitude;
+    private String UserName;
+    private double Latitude;
+    private double Longitude;
 
-    public String getDevice() {
-        return device;
+    public String getUserName() {
+        return UserName;
     }
 
-    public void setDevice(String device) {
-        this.device = device;
+    public void setUserName(String userName) {
+        UserName = userName;
     }
 
     public double getLatitude() {
-        return latitude;
+        return Latitude;
     }
 
     public void setLatitude(double latitude) {
-        this.latitude = latitude;
+        Latitude = latitude;
     }
 
     public double getLongitude() {
-        return longitude;
+        return Longitude;
     }
 
     public void setLongitude(double longitude) {
-        this.longitude = longitude;
+        Longitude = longitude;
     }
-
 }
