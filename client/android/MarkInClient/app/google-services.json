@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "954090484717",
+    "project_id": "inner-rhythm-129615"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:954090484717:android:3128260301977f28",
+        "android_client_info": {
+          "package_name": "com.sample.app.markin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "954090484717-krm6lcf38bnm8u4fq2e0olkbab6mht8c.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sample.app",
+            "certificate_hash": "075D53091FF0999D5DC3F001CCB147C75DCECD16"
+          }
+        },
+        {
+          "client_id": "954090484717-ngr3cleuc3spo67v6c8c5a1bcfk8u6r6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz_GIlfilMJkIWZxxBsIA34hdFiCewXCw"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

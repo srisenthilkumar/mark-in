@@ -19,8 +19,8 @@
         android:text="Your Location" />
 
     <android:android.support.v7.widget.AppCompatTextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:id="@+id/llValue"></android:android.support.v7.widget.AppCompatTextView>
+        android:layout_width="200dp"
+        android:layout_height="100dp" android:id="@+id/llValue"></android:android.support.v7.widget.AppCompatTextView>
 
     <android.support.v7.widget.AppCompatButton
         android:layout_height="wrap_content"
